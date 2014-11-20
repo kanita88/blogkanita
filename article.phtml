@@ -1,26 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 	<head>
 		<meta charset="UTF-8">
 		<title>BLOG</title>
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="style.css">
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<h1>Mon BLOG</h1>
-	
-		<div>
+		<header>
+			<nav>
+				<ul class="menu">
+					<li><a href="index.php">Accueil</a></li>
+					<li><a href="admin.php">Admin</a></li>
+					<li><a href="#">Photos</a></li>
+					<li><a href="about.php">Contact</a></li>
+				</ul>
+			</nav>
+			
+		</header>
+
+		<section>
+
+			<h1>Mon BLOG</h1>
+			<h2><a href="login.php">Connexion</a></h2>
+			
+		<div class="page">
 				<p>
-					<?php echo $monpost['title']; ?> 
+					Titre: <?php echo $monpost['title']; ?>
+					
 				</p>
 				<p>
-					<?php echo $monpost['content']; ?> 
+					Mon Blog: <?php echo $monpost['content']; ?> 
 				</p>
 				<p>
-					<?php echo $monpost['date_create']; ?> 
+					Date de Création: <?php echo $monpost['date_create']; ?> | Auteur: <?php echo $monpost['author_id']; ?> | Catégories: <?php echo $monpost['cat_id']; ?> 
 				</p>
 				<p>
-					<?php echo $monpost['author_id']; ?> 
-				</p>	
+					Nombre de commentaire: <?php echo $monpost['author_id']; ?>  
+				</p>
+				<br>
+
+				<p>Commentaires : </p>
+
+
+
+
 		</div>
+		</section>
 		
+		<footer>
+			
+		</footer>
 	</body>
 </html>

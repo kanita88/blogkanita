@@ -18,7 +18,7 @@ $mesposts=$posts->getLatestPosts();
 //var_dump($monpost);
 //var_dump($mesposts);
 
-include 'message.phtml';
+include 'index.phtml';
 
 
  ?>

@@ -28,5 +28,3 @@ class Model_Post
 
  ?>
 
-
-
