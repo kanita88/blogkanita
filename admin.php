@@ -10,12 +10,33 @@ function my_autoload($class)
 	}
 }
 
+session_start();
+if(isset($_SESSION["nom"]))
+{
+	header('Location: panel.php');
+	exit();
+}
+
 $users= new Model_Users();
 //$mesusers=$users->getUsers();
 if(isset($_POST['nom'])&&($_POST['pass'])){
 	$mesusers=$users->valideMember($_POST['nom'],$_POST['pass']);
-	var_dump($mesusers);
+	//var_dump($mesusers);
+	if($mesusers!=null)
+	{
+		
+		$_SESSION["nom"]=$_POST["nom"];
+		header('location: panel.php');
+	}
+
+	else
+	{
+		 $error = "Nom utilisateur et mot de passe sont incorrect!";
+	}
+
+
 }
+
 
 
 include 'admin.phtml';

@@ -22,6 +22,13 @@ class Model_Post
 		return $post;
 	}
 
+	public function createPosts($title,$content)
+	{
+		$post=$this->db->execute('INSERT INTO post (title,content) values(?,?)', array($title,$content));
+	
+		return $post;
+	}
+
 }
 
 

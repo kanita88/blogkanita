@@ -1,0 +1,7 @@
+# Privilèges pour `blogkanita`@`localhost`
+
+GRANT ALL PRIVILEGES ON *.* TO 'blogkanita'@'localhost' IDENTIFIED BY PASSWORD '*1593CF888F7C5CCB7785D8570A4FA8C1927CB0D7' WITH GRANT OPTION;
+
+GRANT ALL PRIVILEGES ON `blogkanita`.* TO 'blogkanita'@'localhost';
+
+GRANT ALL PRIVILEGES ON `blogkanita\_%`.* TO 'blogkanita'@'localhost';

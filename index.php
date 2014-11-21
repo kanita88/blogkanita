@@ -15,6 +15,7 @@ $posts= new Model_Post();
 
 $mesposts=$posts->getLatestPosts();
 
+
 //var_dump($monpost);
 //var_dump($mesposts);
 
