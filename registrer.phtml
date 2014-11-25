@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>BLOG</title>
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="style.css">
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul class="menu">
+					<li><a href="index.php">Accueil</a></li>
+					<li><a href="admin.php">Admin</a></li>
+					<li><a href="upload/indexs.php">Photos</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>	
+		</header>
+
+		<section>
+
+			<h1>Mon BLOG</h1>
+			<h2><a href="registrer.php">Enregistrez-vous</a></h2>
+			<p style="text-align: right;">créer un article ou laisser un commentaire</p>
+			
+		<div class="page">
+
+			<h1>Bienvenue</h1>
+			<p>Veuillez vous enregistrer pour créer votre super blog :)</p>
+			<br>
+			<form action="registrer.php" method="post">
+			<label for="nom">Enregistrez votre nom:</label><br>
+			<input type="text" name="nom" placeholder="Creez votre login">
+			<br>
+			<label for="nom">Enregistrez votre mot de passe:</label><br>
+			<input type="password" name="pass" placeholder="Creez votre mot de passe">
+			<br>
+			<label for="nom">Votre adresse email</label><br>
+			<input type="text" name="email" placeholder="Votre email">
+			<br>
+			<br>
+			<button type="submit" >Envoyez</button>
+
+
+
+			</form>
+		</div>
+		</section>
+		
+		<footer>
+			
+		</footer>
+	</body>
+</html>

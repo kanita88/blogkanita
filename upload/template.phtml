@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Photos</title>
+		<style>
+		body{
+			width: 950px;
+			margin-left: auto;
+			margin-right: auto;
+			background-image: url(bg.jpg); 
+		}
+		img{
+			margin: 5px;
+			width: 40%;
+		}
+
+
+
+		</style>
+	</head>
+	<body>
+		<h1>Mes Photos</h1>
+		<h2><a href="http://localhost/blogkanita/blogkanita/index.php">Retourne à la page accueil</a></h2>
+		<form action="upload.php" method="POST" enctype="multipart/form-data">
+			<input type="file" name="userfile">
+			<button type="submit" value="Envoyer le fichier" >Upload</button>
+		</form>
+		<br>
+		<?php foreach ($files as $file) {
+			echo '<img src= '.'pictures/'.$file.' />';
+		} ?>
+
+		
+	</body>
+</html>

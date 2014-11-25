@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>BLOG</title>
+		<link rel="stylesheet" href="normalize.css">
+		<link rel="stylesheet" href="style.css">
+		<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<!-- Place inside the <head> of your HTML -->
+		<script type="text/javascript" src="tinymce/js/tinymce/tinymce.min.js"></script>
+		<script type="text/javascript">
+		tinymce.init({
+		    selector: "textarea"
+		 });
+		</script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul class="menu">
+					<li><a href="index.php">Accueil</a></li>
+					<li><a href="admin.php">Admin</a></li>
+					<li><a href="upload/indexs.php">Photos</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</nav>	
+		</header>
+
+		<section>
+
+			<h1>Mon BLOG</h1>
+			<h2><a href="disconnect.php">Déconnexion</a></h2>
+			
+		<div class="text">
+
+			<h1 style="text-align: center;">Bienveue sur votre page Admin</h1>
+			<h3 style="color: #800000;">Bienvenue <?php echo $_SESSION['nom'] ?></h3>
+			<br>
+			<h2 style="text-align: left;">Rédigez votre article!</h2>
+			<br>
+			<form action="panel.php" method="post">
+			<label for="nom">Votre Titre du blog</label><br>
+			<input type="text" name="title" placeholder="Titre de votre article">
+			<br><br>
+		    <textarea name="content"></textarea>
+			<br>
+		    <button type="submit">Publier</button>
+			</form>
+		</div>
+		</section>
+		
+		<footer>
+			
+		</footer>
+	</body>
+</html>
+

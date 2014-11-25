@@ -13,8 +13,8 @@
 				<ul class="menu">
 					<li><a href="index.php">Accueil</a></li>
 					<li><a href="admin.php">Admin</a></li>
-					<li><a href="#">Photos</a></li>
-					<li><a href="about.php">Contact</a></li>
+					<li><a href="upload/indexs.php">Photos</a></li>
+					<li><a href="#">Contact</a></li>
 				</ul>
 			</nav>	
 		</header>
@@ -22,10 +22,16 @@
 		<section>
 
 			<h1>Mon BLOG</h1>
-			<h2><a href="login.php">Connexion</a></h2>
+			<h2><a href="disconnect.php">Déconnexion</a></h2>
 			
 		<div class="page">
-			<form action="panel.php" method="post">
+
+			<?php if(isset($error)){ echo $error;} ?>
+
+			<h1>Connexion</h1>
+
+			<br>
+			<form action="admin.php" method="post">
 			<label for="nom">Login:</label><br>
 			<input type="text" name="nom" placeholder="Entrez votre login">
 			<br>
@@ -33,7 +39,9 @@
 			<input type="password" name="pass" placeholder="Entrez votre mot de passe">
 			<br>
 			<br>
-			<button type="submit" >Envoyez</button>
+			<button type="submit">Envoyez</button>
+
+
 
 			</form>
 		</div>

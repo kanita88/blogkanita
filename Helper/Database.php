@@ -35,9 +35,9 @@ class Helper_Database
 		return $query->fetch(PDO::FETCH_ASSOC);
 
 	}
-	public function execute()
+	public function execute($queryString,$data=array())
 	{
-		$query=$this->db->prepare($queryString=array());
+		$query=$this->db->prepare($queryString);
 		$query->execute($data);
 		
 		return $this->db->lastInsertId();

@@ -74,6 +74,29 @@ form{
 	padding-bottom: 20px;
 }
 
+div.pagenext ul li{
+	display : inline;
+	padding : 0 0.5em; /* Pour espacer les boutons entre eux */
+	text-decoration: none;
+}
+
+div.pagenext ul {
+	list-style-type : none; /* Car sinon les puces se placent n'importe où */
+	text-align: center;
+	margin-top: 50px;
+	font-size: 1.7em;
+
+}
+
+div.pagenext  li a {
+	color: #008000 ;
+}
+
+label {
+	color: #006400;
+}
+
+
 
 
 

@@ -21,6 +21,14 @@ class Model_Users
 		
 		return $users;
 	}
+
+	public function createUsers($nom,$pass,$email)
+	{
+		$users=$this->db->execute('INSERT INTO users(nom,pass,email) values(?,?,?)', array($nom,$pass,$email));
+	
+		return $users;
+	}
+
 }
 
 
