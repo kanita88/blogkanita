@@ -22,16 +22,17 @@
 
 		<section>
 
-			<h1>Mon BLOG</h1>
+			<h1><a href="index.php">Mon BLOG</a></h1>
 			<h2><a href="registrer.php">Enregistrez-vous</a></h2>
 			<p style="text-align: right;">créer un article ou laisser un commentaire</p>
 			
 		<div class="page">
-				<p style="color: #006400 ">
+				<h3>
+					<img src="img/green-flower-hi.png" alt="flower" height="42" width="42"> 
 					Titre: <?php echo $monpost['title']; ?> </a>
 					
-				</p>
-				<p style="color: #006400 "> Mon Blog: </p>
+				</h3>
+				<h3> Mon Blog: </h3>
 				<p><?php echo $monpost['content']; ?> </p> 
 				<p style="color: #006400 ">
 					Date de Création: <?php echo $monpost['date_create']; ?> | Auteur: <?php echo $monpost['nom']; ?> 

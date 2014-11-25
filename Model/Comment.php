@@ -17,7 +17,7 @@ class Model_Comment
 
 	public function getLatestComment($number=2)
 	{
-		$comment=$this->db->query("SELECT * FROM comment ORDER BY date DESC LIMIT ".$number);
+		$comment=$this->db->query('SELECT * FROM comment ORDER BY date DESC LIMIT '.$number);
 		
 		return $comment;
 	}
@@ -28,6 +28,15 @@ class Model_Comment
 	
 		return $comment;
 	}
+
+	public function getNumberOfPage($id_post)
+	{
+		$comment=$this->db->queryOne('SELECT COUNT(*) AS number FROM comment WHERE id_post=?', array($id_post));
+		
+		return $comment["number"];
+
+	}
+
 
 
 }

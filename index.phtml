@@ -22,34 +22,38 @@
 
 		<section>
 
-			<h1>Mon BLOG</h1>
+			<h1><a href="index.php">Mon BLOG</a></h1>
 			<h2><a href="registrer.php">Enregistrez-vous</a></h2>
 			<p style="text-align: right;">créer un article ou laisser un commentaire</p>
 			
 		<div class="page">
 			<?php  foreach ($mesposts as $post): ?>
-				<p style="color: #006400 ">
-					Titre: <a href="article.php?id=<?= $post['id']; ?>"><?php echo $post['title']; ?> </a>
-					
-				</p>
-				<p style="color: #006400 "> Mon Blog: </p>
+				<h3>
+					<img src="img/green-flower-hi.png" alt="flower" height="42" width="42"> Titre: <a href="article.php?id=<?= $post['id']; ?>"><?php echo $post['title']; ?> </a> 
+				</h3>
+				<h3> Mon Blog: </h3> 
 				<p><?php echo $post['content']; ?> </p> 
 				<p style="color: #006400 ">
 					Date de Création: <?php echo $post['date_create']; ?> | Auteur: <?php echo $post['nom']; ?> 
+					<?php if(isset($_SESSION['id'])==true): ?>
+					| <a href=" edit.php?id=<?= $post['id']; ?>"><img src="img/edit-button.png" alt="delete" height="32" width=""></a> | <a onclick="return confirm('Etes vous sure de vouloir supprimer cet article?')" href="delete.php?id=<?= $post['id']; ?>"><img src="img/deletebutton.png" alt="delete" height="32" width="62"></a>
+				<?php endif ?>
 				</p>
 				<br>
 				<p>
-					<!-- Nombre de commentaire: <?php // echo $comment['']; ?>  --> 
+					Tags:
 				</p>
-				<p style="color: #006400 ">
+
+				<h3 >
 					Commentaires:
-				</p>
+				</h3>
+
 				<?php $mescomment=$comments->getCommentForPost($post['id']) ?>
 				<?php  foreach ($mescomment as $comment): ?>
 				<p><?php echo $comment['comment']; ?> | <?php echo $comment['date']; ?> </p>
 				<?php endforeach; ?>
 				<p>
-					Voir  <a href="comment.phtml">pluus de commentaires</a>
+					Voir  <a href="comment.phtml">plus de commentaires</a> | Nombre de commentaire: <?php echo $numberpage=$comments->getNumberOfPage($post['id']); ?>
 				</p>
 
 				<form action="comment.php" method="post">
@@ -70,7 +74,7 @@
 
 		<div class="pagenext">
 
-			<ul>
+			<ul class="pagination">
 				<li>
 					<a href="index.php?page=
 

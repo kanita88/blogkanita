@@ -9,24 +9,24 @@ function my_autoload($class)
 		require_once($filepath);
 	}
 }
-
 session_start();
+if(isset($_SESSION['id'])==false){
+	header('Location: admin.php');
+	exit();
+}
 
 $post= new Model_Post();
 
-
 if(isset($_POST['title']) && isset($_POST['content']))
 {
-	$postss=$post->createPosts($_POST['title'],$_POST['content'],$_SESSION['id']);
-	if($postss==true)
-	{
-		header('location: index.php');
-	}
+	$edit=$post->updatePost($_POST['title'],$_POST['content'],$_GET['id']);
 
-	else
-	{
-		 echo "Veuillez mettre à vous votre article!";
-	}
+	header('location: article.php?id='.$_GET['id']);
+}
+else
+{
+
+	$monpost=$post->getPost($_GET['id']);
 }
 
 $dir='upload/pictures';  
@@ -35,4 +35,4 @@ $files=scandir($dir);
 
 array_splice($files,0,2);
 
-include 'panel.phtml';
+include 'edit.phtml';

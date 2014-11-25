@@ -15,9 +15,9 @@ class Model_Post
 		return $post;
 	}
 
-	public function getLatestPosts($number=5)
+	public function getLatestPosts($offset=0, $number=5)
 	{
-		$post=$this->db->query("SELECT post.*,users.nom FROM post INNER JOIN users ON post.author_id=users.id ORDER BY date_create DESC LIMIT ".$number);
+		$post=$this->db->query("SELECT post.*,users.nom FROM post INNER JOIN users ON post.author_id=users.id ORDER BY date_create DESC LIMIT ".$offset.",".$number);
 		
 		return $post;
 	}
@@ -28,6 +28,17 @@ class Model_Post
 	
 		return $post;
 	}
+
+	public function updatePost($title,$content,$id)
+	{
+		$post=$this->db->execute('UPDATE post SET title=?,content=? WHERE id=?',array($title,$content,$id));
+	}
+
+	public function deletPost($id)
+	{
+		$post=$this->db->execute('DELETE FROM post WHERE id ='.$id);
+	}
+
 
 }
 

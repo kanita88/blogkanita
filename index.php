@@ -22,9 +22,9 @@ else
 	$page=1;
 }
 
-echo $page;
 
-$mesposts=$posts->getLatestPosts();
+
+$mesposts=$posts->getLatestPosts(($page-1)*5,5);
 
 
 

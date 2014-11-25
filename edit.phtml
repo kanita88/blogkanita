@@ -49,13 +49,13 @@
 			<h1 style="text-align: center;">Bienveue sur votre page Admin</h1>
 			<h3 style="color: #800000;">Bienvenue <?php echo $_SESSION['nom'] ?></h3>
 			<br>
-			<h2 style="text-align: left;">Rédigez votre article!</h2>
+			<h2 style="text-align: left;">Editez votre article!</h2>
 			<br>
-		<form action="panel.php" method="post">
-			<label for="nom">Votre Titre du blog</label><br>
-			<input type="text" name="title" placeholder="Titre de votre article">
+		<form action="edit.php?id=<?php echo $monpost['id'] ?>" method="post">
+			<label for="nom">Editez Titre du blog</label><br>
+			<input type="text" name="title" value="<?php echo $monpost['title'] ?>" placeholder="Editez votre article">
 			<br><br>
-		    <textarea  name="content" ></textarea>
+		    <textarea  name="content" ><?php echo $monpost['content'] ?></textarea>
 			<br>
 			<button type="submit">Publier</button>
 		</form>
@@ -78,4 +78,3 @@
 		</footer>
 	</body>
 </html>
-
