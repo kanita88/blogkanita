@@ -1,4 +1,5 @@
 <?php 
+
 spl_autoload_register("my_autoload");
 function my_autoload($class)
 {
@@ -9,12 +10,18 @@ function my_autoload($class)
 		require_once($filepath);
 	}
 }
-
 session_start();
+if(isset($_SESSION['id'])==false){
+	header('Location: admin.php');
+	exit();
+}
+
 $posts= new Model_Post();
 $comments= new Model_Comment();
 
-$post=$posts->getPost($_GET['id']);
+$mesposts=$posts->getLatestPosts();
 
-include 'article.phtml';
- ?>
+
+
+
+include 'commentplus.phtml';

@@ -14,7 +14,7 @@
 					<li><a href="index.php">Accueil</a></li>
 					<li><a href="admin.php">Admin</a></li>
 					<li><a href="upload/indexs.php">Photos</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</nav>
 			
@@ -32,7 +32,7 @@
 					<img src="img/green-flower-hi.png" alt="flower" height="42" width="42"> Titre: <a href="article.php?id=<?= $post['id']; ?>"><?php echo $post['title']; ?> </a> 
 				</h3>
 				<h3> Mon Blog: </h3> 
-				<p><?php echo $post['content']; ?> </p> 
+				<p><?php echo substr ($post['content'],0,400)."<br>"."Voir plus..."; ?> <a href="article.php?id=<?= $post['id']; ?>"><?php echo $post['title']; ?> </a></p>
 				<p style="color: #006400 ">
 					Date de Création: <?php echo $post['date_create']; ?> | Auteur: <?php echo $post['nom']; ?> 
 					<?php if(isset($_SESSION['id'])==true): ?>
@@ -41,7 +41,7 @@
 				</p>
 				<br>
 				<p>
-					Tags:
+					<img src="img/blue-tag-icon.png" alt="tag" height="32" width="32">Tags:
 				</p>
 
 				<h3 >
@@ -53,12 +53,13 @@
 				<p><?php echo $comment['comment']; ?> | <?php echo $comment['date']; ?> </p>
 				<?php endforeach; ?>
 				<p>
-					Voir  <a href="comment.phtml">plus de commentaires</a> | Nombre de commentaire: <?php echo $numberpage=$comments->getNumberOfPage($post['id']); ?>
+					Voir  <a href="commentplus.php?id=<?= $post['id'] ?>">plus de commentaires</a> | Nombre de commentaire: <?php echo $numberpage=$comments->getNumberOfPage($post['id']); ?>
 				</p>
 
 				<form action="comment.php" method="post">
 
 					<input type="hidden" value="<?php echo $post['id']; ?>" name="id_post">
+					<input type="hidden" value="index" name="cible">
 
 					<label for="comment">Laissez votre commentaire: </label>
 					<br>
@@ -71,8 +72,11 @@
 
 			<?php endforeach; ?>
 		</div>
+		
+		</section>
 
-		<div class="pagenext">
+		<footer>
+			<div class="pagenext">
 
 			<ul class="pagination">
 				<li>
@@ -90,9 +94,6 @@
 			</ul>
 	
 		</div>
-		</section>
-
-		<footer>
 			
 		</footer>
 	</body>

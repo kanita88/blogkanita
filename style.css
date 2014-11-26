@@ -4,10 +4,20 @@ body{
 	background-image: url(img/bg.jpg);
 }
 
+nav{
+	padding: 40px;
+	background-image: url(img/floral.png);
+	background-repeat: no-repeat;
+	background-size: 46% ;
+	background-position: 50%
+
+}
+
 section, header{
 	width: 950px;
 	margin-left: auto;
 	margin-right: auto;
+
 }
 
 section h1{
@@ -49,7 +59,7 @@ section h3{
 
 section .page{
 	background-image: url(img/green.jpg);
-	opacity: 0.8;
+	opacity: 0.9;
 	margin-top: 20px;
 	margin-left: 20px;
 	padding: 20px;

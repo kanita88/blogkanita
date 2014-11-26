@@ -14,7 +14,7 @@
 					<li><a href="index.php">Accueil</a></li>
 					<li><a href="admin.php">Admin</a></li>
 					<li><a href="upload/indexs.php">Photos</a></li>
-					<li><a href="#">Contact</a></li>
+					<li><a href="contact.php">Contact</a></li>
 				</ul>
 			</nav>
 			
@@ -29,15 +29,40 @@
 		<div class="page">
 				<h3>
 					<img src="img/green-flower-hi.png" alt="flower" height="42" width="42"> 
-					Titre: <?php echo $monpost['title']; ?> </a>
+					Titre: <?php echo $post['title']; ?> </a>
 					
 				</h3>
 				<h3> Mon Blog: </h3>
-				<p><?php echo $monpost['content']; ?> </p> 
+				<p><?php echo $post['content']; ?> </p> 
 				<p style="color: #006400 ">
-					Date de Création: <?php echo $monpost['date_create']; ?> | Auteur: <?php echo $monpost['nom']; ?> 
+					Date de Création: <?php echo $post['date_create']; ?> | Auteur: <?php echo $post['nom']; ?> 
 				</p>
 				<br>
+				<h3 >
+					Commentaires:
+				</h3>
+
+				<?php $mescomment=$comments->getCommentForPost($post['id']) ?>
+				<?php  foreach ($mescomment as $comment): ?>
+				<p><?php echo $comment['comment']; ?> | <?php echo $comment['date']; ?> </p>
+				<?php endforeach; ?>
+				<p>
+					Voir  <a href="commentplus.php?id=<?= $post['id']; ?>">plus de commentaires</a> | Nombre de commentaire: <?php echo $numberpage=$comments->getNumberOfPage($post['id']); ?>
+				</p>
+
+				<form action="comment.php" method="post">
+
+					<input type="hidden" value="<?= $post['id']; ?>" name="id_post">
+					<input type="hidden" value="article" name="cible">
+					<label for="comment">Laissez votre commentaire: </label>
+					<br>
+					<textarea name="comment" id="comment" cols="30" rows="5"></textarea>
+					<br>
+					<button type="submit" name="submit" value="3">Envoyez</button>
+					<br>
+				</form>
+				<br>
+		</div>
 
 		</div>
 		</section>

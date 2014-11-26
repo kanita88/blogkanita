@@ -14,6 +14,12 @@ class Model_Comment
 		
 		return $comment;
 	}
+	public function getCommentForAll($id)
+	{
+		$comment=$this->db->query('SELECT * FROM comment WHERE id_post='.$id." ORDER BY date DESC ");
+		
+		return $comment;
+	}
 
 	public function getLatestComment($number=2)
 	{

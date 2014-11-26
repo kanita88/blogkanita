@@ -16,7 +16,8 @@
 					<li><a href="upload/indexs.php">Photos</a></li>
 					<li><a href="contact.php">Contact</a></li>
 				</ul>
-			</nav>	
+			</nav>
+			
 		</header>
 
 		<section>
@@ -25,26 +26,19 @@
 			<h2><a href="registrer.php">Enregistrez-vous</a></h2>
 			<p style="text-align: right;">créer un article ou laisser un commentaire</p>
 			
-		<div class="page">
-
-			<h1>Bienvenue</h1>
-			<p>Veuillez vous enregistrer pour créer votre super blog :)</p>
-			<br>
-			<form action="registrer.php" method="post">
-			<label for="nom">Enregistrez votre nom:</label><br>
-			<input type="text" name="nom" placeholder="Creez votre login">
-			<br>
-			<label for="nom">Enregistrez votre mot de passe:</label><br>
-			<input type="password" name="pass" placeholder="Creez votre mot de passe">
-			<br>
-			<label for="nom">Votre adresse email</label><br>
-			<input type="text" name="email" placeholder="Votre email">
-			<br>
-			<br>
-			<button type="submit" >Envoyez</button>
-
-
-
+		<div class="contact">
+			<form id="contact" method="post" action="traitement_formulaire.php">
+			<fieldset><legend>Vos coordonnées</legend>
+			<p><label for="nom">Nom :</label><input type="text" id="nom" name="nom" tabindex="1" /></p>
+			<p><label for="email">Email :</label><input type="text" id="email" name="email" tabindex="2" /></p>
+			</fieldset>
+ 
+			<fieldset><legend>Votre message :</legend>
+			<p><label for="objet">Objet :</label><input type="text" id="objet" name="objet" tabindex="3" /></p>
+			<p><label for="message">Message :</label><textarea id="message" name="message" tabindex="4" cols="30" rows="8"></textarea></p>
+			</fieldset>
+ 
+			<div style="text-align:center;"><input type="submit" name="envoi" value="Envoyer le formulaire !" /></div>
 			</form>
 		</div>
 		</section>

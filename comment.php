@@ -20,12 +20,12 @@ if(isset($_POST['comment'])){
 $commentplus=$comment->createComment($_POST['comment'], $_POST['id_post'], $_SESSION["id"]);
 	if($commentplus==true)
 	{
-		header('location: index.php');
+		header('Location: '.$_POST['cible'].'.php'.($_POST['cible']=='article'?'?id='.$_POST['id_post']:'')); //condition ternaire (if?then:else)
 	}
 
 	else
 	{
-		 header('location: admin.php');
+		 header('Location: admin.php');
 	}
 }
 
@@ -33,4 +33,4 @@ $commentplus=$comment->createComment($_POST['comment'], $_POST['id_post'], $_SES
 //var_dump($monpost);
 //var_dump($mesposts);
 
-include 'index.phtml';
+//include 'index.phtml';
